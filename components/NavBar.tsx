@@ -7,10 +7,10 @@ export default function NavBar() {
         <p>Home</p>
       </Link>
       <Link href={'/ssr'}>
-        <p>ServerSideRendered</p>
+        <p>Server Side Rendered List</p>
       </Link>
       <Link href={'/csr'}>
-        <p>ClientSideRendered</p>
+        <p>Client Side Rendered List</p>
       </Link>
 
       <style jsx>{`
@@ -23,7 +23,7 @@ export default function NavBar() {
           padding: 10px;
         }
 
-        @media screen and (max-width: 410px) {
+        @media screen and (max-width: 480px) {
           nav {
             flex-direction: column;
           }
@@ -31,9 +31,11 @@ export default function NavBar() {
 
         p {
           border-bottom: 2px solid transparent;
+          font-size: inherit;
         }
+
         p:hover {
-          border-bottom: 2px solid blue;
+          border-bottom: 2px solid dodgerblue;
         }
       `}</style>
     </nav>
