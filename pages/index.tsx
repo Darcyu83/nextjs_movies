@@ -12,6 +12,9 @@ export default function Home() {
         <div className={styles.grid}>
           <Link className={styles.card} href={`${PREFIX_HOME}/ssr`}>
             <p>Server Side Rendered List</p>
+            <p>
+              {PREFIX_HOME} -=-=- {process.env.NODE_ENV}
+            </p>
           </Link>
           <Link className={styles.card} href={`${PREFIX_HOME}/csr`}>
             <p>Client Side Rendered List</p>

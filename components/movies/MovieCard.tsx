@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { useEffect } from 'react';
 import useConfigContext from '../../context/hooks/useConfigContext';
 
 export default function MovieCard({ movie }: any) {
@@ -7,9 +6,6 @@ export default function MovieCard({ movie }: any) {
 
   const posterPath = `${PREFIX_POSTER}${movie.poster_path}`;
 
-  useEffect(() => {
-    console.log('posterPath ::', posterPath);
-  }, []);
   return (
     <div className="card-container">
       <span>{movie.title}</span>
