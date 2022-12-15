@@ -1,9 +1,9 @@
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { Seo } from '../../components/Seo';
-import { PREFIX_HOME } from '../../config/config';
-import useConfigContext from '../../context/hooks/useConfigContext';
+import { Seo } from '../../../components/Seo';
+import { PREFIX_HOME } from '../../../config/config';
+import useConfigContext from '../../../context/hooks/useConfigContext';
 
 export default function MovieDetails({ movieDetails }: any) {
   const { PREFIX_POSTER } = useConfigContext();

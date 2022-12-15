@@ -12,10 +12,10 @@ export default function Home() {
       <Seo pageNm="Home" />
       <main className={styles.main}>
         <div className={styles.grid}>
-          <Link className={styles.card} href={`${PREFIX_HOME}ssr/`}>
+          <Link className={styles.card} href={`${PREFIX_HOME}movies/ssr/`}>
             <p>Server Side Rendered List</p>
           </Link>
-          <Link className={styles.card} href={`${PREFIX_HOME}csr/`}>
+          <Link className={styles.card} href={`${PREFIX_HOME}movies/csr/`}>
             <p>Client Side Rendered List</p>
           </Link>
         </div>
