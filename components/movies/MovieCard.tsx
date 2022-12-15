@@ -1,7 +1,8 @@
 import Image from 'next/image';
-import { PREFIX_POSTER } from '../../pages/api/constants';
+import useConfigContext from '../../context/hooks/useConfigContext';
 
 export default function MovieCard({ movie }: any) {
+  const { PREFIX_POSTER } = useConfigContext();
   return (
     <div className="card-container">
       <span>{movie.title}</span>

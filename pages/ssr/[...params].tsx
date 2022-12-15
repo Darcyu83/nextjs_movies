@@ -2,9 +2,10 @@ import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Seo } from '../../components/Seo';
-import { PREFIX_POSTER } from '../api/constants';
+import useConfigContext from '../../context/hooks/useConfigContext';
 
 export default function MovieDetails({ movieDetails }: any) {
+  const { PREFIX_POSTER } = useConfigContext();
   console.log('movie data', movieDetails);
 
   const router = useRouter();

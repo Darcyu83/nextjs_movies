@@ -19,6 +19,10 @@ const nextConfig = {
       },
     ];
   },
+  assetPrefix:
+    process.env.NODE_ENV === 'production'
+      ? 'https://darcyu83.github.io/nextjs_movies/'
+      : '',
 };
 
 module.exports = nextConfig;

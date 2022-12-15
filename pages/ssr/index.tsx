@@ -2,7 +2,8 @@ import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 import MovieCard from '../../components/movies/MovieCard';
 import { Seo } from '../../components/Seo';
-import { API_MOVIES } from '../api/constants';
+import { API_MOVIES, PREFIX_HOME } from '../../config/config';
+import useConfigContext from '../../context/hooks/useConfigContext';
 
 export default function SsrList({ movies }: any) {
   return (
@@ -36,7 +37,7 @@ export default function SsrList({ movies }: any) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch(`http://localhost:3000${API_MOVIES}`);
+  const res = await fetch(`${PREFIX_HOME}${API_MOVIES}`);
   const { results: movies } = await res.json();
   return {
     props: { movies },
