@@ -4,6 +4,8 @@ const nextConfig = {
   swcMinify: true,
 
   images: {
+    loader: 'akamai',
+    path: '/',
     domains: ['image.tmdb.org'],
   },
 
@@ -23,6 +25,7 @@ const nextConfig = {
     process.env.NODE_ENV === 'production'
       ? 'https://darcyu83.github.io/nextjs_movies/'
       : '',
+  trailingSlash: true,
 };
 
 module.exports = nextConfig;
