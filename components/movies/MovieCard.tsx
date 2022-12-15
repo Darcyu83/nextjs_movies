@@ -1,10 +1,8 @@
 import Image from 'next/image';
-import useConfigContext from '../../context/hooks/useConfigContext';
+import { PREFIX_POSTER } from '../../config/config';
 
 export default function MovieCard({ movie }: any) {
-  const { PREFIX_POSTER } = useConfigContext();
-
-  const posterPath = `${PREFIX_POSTER}${movie.poster_path}`;
+  // const { PREFIX_POSTER } = useConfigContext();
 
   return (
     <div className="card-container">
@@ -12,7 +10,7 @@ export default function MovieCard({ movie }: any) {
 
       <div className="image-wrapper">
         <Image
-          src={posterPath}
+          src={`${PREFIX_POSTER}${movie.poster_path}`}
           alt={`poster_${movie.title}`}
           fill
           sizes="(max-width: 800px) 100%"

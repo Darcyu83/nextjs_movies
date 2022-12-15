@@ -12,7 +12,7 @@ export default function SsrList({ movies }: any) {
       {movies?.map((movie: any) => (
         <Link
           href={{
-            pathname: `/ssr/${movie.id}`,
+            pathname: `${PREFIX_HOME}ssr/${movie.id}`,
             query: { id: movie.id, posterPath: movie.poster_path },
           }}
           key={movie.id}
@@ -36,7 +36,9 @@ export default function SsrList({ movies }: any) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch(`${PREFIX_HOME}${API_MOVIES}`);
+  const url = `${PREFIX_HOME}${API_MOVIES}`;
+  console.log(url);
+  const res = await fetch(url);
 
   const { results: movies } = await res.json();
   return {

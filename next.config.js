@@ -4,8 +4,6 @@ const nextConfig = {
   swcMinify: true,
 
   images: {
-    loader: 'akamai',
-    path: '/',
     domains: ['image.tmdb.org'],
   },
 
@@ -24,7 +22,7 @@ const nextConfig = {
   assetPrefix:
     process.env.NODE_ENV === 'production'
       ? 'https://nextjs-movies-darcy.vercel.app'
-      : '',
+      : '/',
   trailingSlash: true,
 };
 

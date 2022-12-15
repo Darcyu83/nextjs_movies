@@ -8,10 +8,10 @@ export default function NavBar() {
       <Link href={PREFIX_HOME}>
         <p>Home</p>
       </Link>
-      <Link href={`${PREFIX_HOME}/ssr`}>
+      <Link href={`${PREFIX_HOME}ssr/`}>
         <p>Server Side Rendered List</p>
       </Link>
-      <Link href={`${PREFIX_HOME}/csr`}>
+      <Link href={`${PREFIX_HOME}csr/`}>
         <p>Client Side Rendered List</p>
       </Link>
 
