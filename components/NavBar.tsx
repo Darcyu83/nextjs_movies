@@ -1,15 +1,17 @@
 import Link from 'next/link';
+import useConfigContext from '../context/hooks/useConfigContext';
 
 export default function NavBar() {
+  const { PREFIX_HOME } = useConfigContext();
   return (
     <nav>
-      <Link href={'/'}>
+      <Link href={PREFIX_HOME}>
         <p>Home</p>
       </Link>
-      <Link href={'/ssr'}>
+      <Link href={`${PREFIX_HOME}/ssr`}>
         <p>Server Side Rendered List</p>
       </Link>
-      <Link href={'/csr'}>
+      <Link href={`${PREFIX_HOME}/csr`}>
         <p>Client Side Rendered List</p>
       </Link>
 
