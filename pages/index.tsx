@@ -7,9 +7,6 @@ import styles from '../styles/Home.module.css';
 export default function Home() {
   const { PREFIX_HOME } = useConfigContext();
 
-  const config = getConfig();
-
-  console.log('getConfig result', config.publicRuntimeConfig.basePath);
   return (
     <div className={styles.container}>
       <Seo pageNm="Home" />
