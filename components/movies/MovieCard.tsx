@@ -1,15 +1,22 @@
 import Image from 'next/image';
+import { useEffect } from 'react';
 import useConfigContext from '../../context/hooks/useConfigContext';
 
 export default function MovieCard({ movie }: any) {
   const { PREFIX_POSTER } = useConfigContext();
+
+  const posterPath = `${PREFIX_POSTER}${movie.poster_path}`;
+
+  useEffect(() => {
+    console.log('posterPath ::', posterPath);
+  }, []);
   return (
     <div className="card-container">
       <span>{movie.title}</span>
 
       <div className="image-wrapper">
         <Image
-          src={`${PREFIX_POSTER}${movie.poster_path}`}
+          src={posterPath}
           alt={`poster_${movie.title}`}
           fill
           sizes="(max-width: 800px) 100%"
