@@ -2,7 +2,7 @@
   "name": "nextjs_movies",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://nextjs-movies-g9aa6tdpi-darcyu83.vercel.app/",
+  "homepage": "https://nextjs-movies-silk.vercel.app/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
