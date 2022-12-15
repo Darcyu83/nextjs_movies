@@ -25,7 +25,7 @@ export default function NavBar() {
           padding: 10px;
         }
 
-        @media screen and (max-width: 480px) {
+        @media screen and (max-width: 500px) {
           nav {
             flex-direction: column;
           }

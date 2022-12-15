@@ -100,7 +100,7 @@ export default function MovieDetails({ movieDetails }: any) {
           margin-right: 5px;
         }
 
-        @media screen and (max-width: 480px) {
+        @media screen and (max-width: 500px) {
           .inner-container {
             flex-direction: column;
           }
