@@ -2,6 +2,7 @@ import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Seo } from '../../components/Seo';
+import { PREFIX_HOME } from '../../config/config';
 import useConfigContext from '../../context/hooks/useConfigContext';
 
 export default function MovieDetails({ movieDetails }: any) {
@@ -117,9 +118,7 @@ export default function MovieDetails({ movieDetails }: any) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const response = await fetch(
-    `http://localhost:3000/api/movies/${ctx.query.id}`,
-  );
+  const response = await fetch(`${PREFIX_HOME}/api/movies/${ctx.query.id}`);
 
   const data = await response.json();
 
