@@ -23,7 +23,7 @@ const nextConfig = {
   },
   assetPrefix:
     process.env.NODE_ENV === 'production'
-      ? 'https://nextjs-movies-silk.vercel.app'
+      ? 'https://nextjs-movies-darcy.vercel.app'
       : '',
   trailingSlash: true,
 };
