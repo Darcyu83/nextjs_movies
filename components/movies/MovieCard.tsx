@@ -13,7 +13,6 @@ export default function MovieCard({ movie }: any) {
           alt={`poster_${movie.title}`}
           fill
           sizes="(max-width: 800px) 100%"
-          priority
         />
       </div>
 
