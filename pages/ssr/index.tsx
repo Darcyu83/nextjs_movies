@@ -3,7 +3,6 @@ import Link from 'next/link';
 import MovieCard from '../../components/movies/MovieCard';
 import { Seo } from '../../components/Seo';
 import { API_MOVIES, PREFIX_HOME } from '../../config/config';
-import useConfigContext from '../../context/hooks/useConfigContext';
 
 export default function SsrList({ movies }: any) {
   return (

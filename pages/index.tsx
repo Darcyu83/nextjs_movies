@@ -1,13 +1,9 @@
-import Head from 'next/head';
-import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { Seo } from '../components/Seo';
 import useConfigContext from '../context/hooks/useConfigContext';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
-  const router = useRouter();
   const { PREFIX_HOME } = useConfigContext();
   return (
     <div className={styles.container}>

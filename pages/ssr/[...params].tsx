@@ -33,7 +33,7 @@ export default function MovieDetails({ movieDetails }: any) {
           <p>{movieDetails.original_language}</p>
           <div className="genres">
             {movieDetails.genres.map((genre: { id: number; name: string }) => (
-              <span>●{genre.name}</span>
+              <span key={genre.id}>●{genre.name}</span>
             ))}
           </div>
         </div>
