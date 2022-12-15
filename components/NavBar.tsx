@@ -5,7 +5,7 @@ export default function NavBar() {
   const { PREFIX_HOME } = useConfigContext();
   return (
     <nav>
-      <Link href={PREFIX_HOME}>
+      <Link href={'/'}>
         <p>Home</p>
       </Link>
       <Link href={`${PREFIX_HOME}ssr/`}>

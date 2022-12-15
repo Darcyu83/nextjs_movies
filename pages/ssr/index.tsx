@@ -37,7 +37,7 @@ export default function SsrList({ movies }: any) {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const url = `${PREFIX_HOME}${API_MOVIES}`;
-  console.log(url);
+
   const res = await fetch(url);
 
   const { results: movies } = await res.json();

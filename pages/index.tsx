@@ -1,3 +1,4 @@
+import getConfig from 'next/config';
 import Link from 'next/link';
 import { Seo } from '../components/Seo';
 import useConfigContext from '../context/hooks/useConfigContext';
@@ -5,11 +6,14 @@ import styles from '../styles/Home.module.css';
 
 export default function Home() {
   const { PREFIX_HOME } = useConfigContext();
+
+  const config = getConfig();
+
+  console.log('getConfig result', config.publicRuntimeConfig.basePath);
   return (
     <div className={styles.container}>
       <Seo pageNm="Home" />
       <main className={styles.main}>
-        <p>{`${PREFIX_HOME} & ${process.env.NODE_ENV}`}</p>
         <div className={styles.grid}>
           <Link className={styles.card} href={`${PREFIX_HOME}ssr/`}>
             <p>Server Side Rendered List</p>
