@@ -14,6 +14,9 @@ export default function NavBar() {
       <Link href={`${PREFIX_HOME}movies/csr/`}>
         <p>Client Side Rendered List</p>
       </Link>
+      <Link href={`${PREFIX_HOME}movies/ssg/`}>
+        <p>Server Side Generation List</p>
+      </Link>
 
       <style jsx>{`
         nav {

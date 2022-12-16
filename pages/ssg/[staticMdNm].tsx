@@ -1,30 +1,42 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 
-import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import Head from 'next/head';
 
 import fs from 'fs';
 
 import path from 'path';
 import matter from 'gray-matter';
-import { Seo } from '../../components/Seo';
+import { marked } from 'marked';
 
 export default function SsgMovieDetails({
   staticMdNm,
   contents,
+  htmlStringAsContents,
   data,
-}: InferGetStaticPropsType<typeof getStaticPaths> & {
-  data: {
-    [key: string]: any;
-  };
-}) {
-  const router = useRouter();
+}: InferGetStaticPropsType<typeof getStaticProps>) {
+  const [_contents, setContents] = useState('');
 
+  useEffect(() => {
+    setContents(contents);
+  }, []);
   return (
     <div>
-      <Seo pageNm={'ahah'} />
-      <p>invoked static Movie page Nm === {staticMdNm}</p>
+      <Head>
+        <title>{data.title}</title>
+        <meta title="description" content={data.description} />
+      </Head>
+      <p>{`invoked static Movie page Nm === ${staticMdNm}`}</p>
       <h1>.md file contents</h1>
-      <pre>{`${contents}`}</pre>
+      <pre
+        style={{ backgroundColor: 'rgba(255,0,255,0.3)' }}
+      >{`${_contents}`}</pre>
+
+      <h1>html String here</h1>
+      <div
+        style={{ backgroundColor: 'rgba(0,255,255,0.3)' }}
+        dangerouslySetInnerHTML={{ __html: htmlStringAsContents }}
+      />
     </div>
   );
 }
@@ -57,13 +69,13 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   const parsedMarkdown = matter(markdownWithMeta);
 
-  console.log('contents ===', parsedMarkdown.data);
-
+  const htmlString = marked(parsedMarkdown.content);
   return {
     props: {
       staticMdNm,
       contents: parsedMarkdown.content,
       data: parsedMarkdown.data,
+      htmlStringAsContents: htmlString,
     },
   };
 };
