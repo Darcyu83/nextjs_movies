@@ -1,11 +1,16 @@
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { Seo } from '../../../components/Seo';
-import { PREFIX_HOME } from '../../../config/config';
-import useConfigContext from '../../../context/hooks/useConfigContext';
+import { Seo } from '../../../../components/Seo';
+import { PREFIX_HOME } from '../../../../config/config';
+import useConfigContext from '../../../../context/hooks/useConfigContext';
+import { IGenre, IMovieDetails } from '../../types';
 
-export default function MovieDetails({ movieDetails }: any) {
+export default function MovieDetails({
+  movieDetails,
+}: {
+  movieDetails: IMovieDetails;
+}) {
   const { PREFIX_POSTER } = useConfigContext();
   console.log('movie data', movieDetails);
 
@@ -29,11 +34,11 @@ export default function MovieDetails({ movieDetails }: any) {
         <div className="divider" />
 
         <div className="info-container">
-          <p>{movieDetails.title}</p>
-          <p>{movieDetails.overview}</p>
-          <p>{movieDetails.original_language}</p>
+          <p>{movieDetails?.title}</p>
+          <p>OverView: {movieDetails?.overview}</p>
+          <p>Language: {movieDetails?.original_language}</p>
           <div className="genres">
-            {movieDetails.genres.map((genre: { id: number; name: string }) => (
+            {movieDetails?.genres.map((genre: IGenre) => (
               <span key={genre.id}>●{genre.name}</span>
             ))}
           </div>

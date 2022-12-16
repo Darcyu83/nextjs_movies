@@ -3,16 +3,17 @@ import Link from 'next/link';
 import MovieCard from '../../../components/movies/MovieCard';
 import { Seo } from '../../../components/Seo';
 import { API_MOVIES, PREFIX_HOME } from '../../../config/config';
+import { IMovie } from '../types';
 
-export default function SsrList({ movies }: any) {
+export default function SsrList({ movies }: { movies: IMovie[] }) {
   return (
     <div className="list-container">
       <Seo pageNm="Server Side Rendered Movie List" />
 
-      {movies?.map((movie: any) => (
+      {movies?.map((movie: IMovie) => (
         <Link
           href={{
-            pathname: `${PREFIX_HOME}movies/details/${movie.id}`,
+            pathname: `${PREFIX_HOME}movies/ssr/details/${movie.id}`,
             query: { id: movie.id, posterPath: movie.poster_path },
           }}
           key={movie.id}

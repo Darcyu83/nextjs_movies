@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import { PREFIX_POSTER } from '../../config/config';
+import { IMovie } from '../../pages/movies/types';
 
-export default function MovieCard({ movie }: any) {
+export default function MovieCard({ movie }: { movie: IMovie }) {
   // const { PREFIX_POSTER } = useConfigContext();
 
   return (
