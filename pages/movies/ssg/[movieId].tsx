@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { Seo } from '../../../components/Seo';
 import { API_MOVIES, PREFIX_HOME } from '../../../config/config';
 import useConfigContext from '../../../context/hooks/useConfigContext';
-import { IGenre, IMovie, IMovieDetails } from '../types';
+import { IGenre, IMovie, IMovieDetails } from '../../../types/movies/types';
 
 export function SsgMovieDetails({
   movieDetails,
