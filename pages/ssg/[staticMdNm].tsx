@@ -32,7 +32,7 @@ export default function SsgMovieDetails({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const files = fs.readdirSync('pages/movies/static');
+  const files = fs.readdirSync('pages/static');
 
   const paths = files.map((fileNm) => ({
     params: { staticMdNm: fileNm.replace('.md', '') },
