@@ -1,21 +1,75 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { PREFIX_HOME } from '../config/config';
 import useConfigContext from '../context/hooks/useConfigContext';
 
+export const routerPaths = {
+  home: '/',
+  ssr: 'movies/ssr',
+  csr: 'movies/csr',
+  ssg: 'movies/ssg',
+} as const;
+
 export default function NavBar() {
-  const { PREFIX_HOME } = useConfigContext();
+  const router = useRouter();
+  const [activeRoutePath, setActiveRoutePath] = useState('/');
+
+  useEffect(() => {
+    console.log('router.pathname', router.pathname);
+
+    setActiveRoutePath(router.pathname);
+  }, [router]);
+
   return (
     <nav>
-      <Link href={'/'}>
-        <p>Home</p>
+      <Link href={`${routerPaths.home}`}>
+        <p
+          style={{
+            borderBottom:
+              activeRoutePath === routerPaths.home
+                ? '2px solid dodgerblue'
+                : '',
+          }}
+        >
+          Home
+        </p>
       </Link>
-      <Link href={`${PREFIX_HOME}movies/ssr/`}>
-        <p>Server Side Rendered List</p>
+      <Link href={`${PREFIX_HOME}${routerPaths.ssr}`}>
+        <p
+          style={{
+            borderBottom:
+              activeRoutePath === '/' + routerPaths.ssr
+                ? '2px solid dodgerblue'
+                : '',
+          }}
+        >
+          Server Side Rendered List
+        </p>
       </Link>
-      <Link href={`${PREFIX_HOME}movies/csr/`}>
-        <p>Client Side Rendered List</p>
+      <Link href={`${PREFIX_HOME}${routerPaths.csr}`}>
+        <p
+          style={{
+            borderBottom:
+              activeRoutePath === '/' + routerPaths.csr
+                ? '2px solid dodgerblue'
+                : '',
+          }}
+        >
+          Client Side Rendered List
+        </p>
       </Link>
-      <Link href={`${PREFIX_HOME}movies/ssg/`}>
-        <p>Server Side Generation List</p>
+      <Link href={`${PREFIX_HOME}${routerPaths.ssg}`}>
+        <p
+          style={{
+            borderBottom:
+              activeRoutePath === '/' + routerPaths.ssg
+                ? '2px solid dodgerblue'
+                : '',
+          }}
+        >
+          Server Side Generation List
+        </p>
       </Link>
 
       <style jsx>{`
@@ -35,7 +89,10 @@ export default function NavBar() {
         }
 
         p {
-          border-bottom: 2px solid transparent;
+             border-bottom:${
+               router.pathname === routerPaths.ssr ? '2px solid dodgerblue' : ''
+             } 
+          /* border-bottom: 2px solid transparent; */
           font-size: inherit;
         }
 
