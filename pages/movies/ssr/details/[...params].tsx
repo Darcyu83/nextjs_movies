@@ -6,7 +6,7 @@ import { PREFIX_HOME } from '../../../../config/config';
 import useConfigContext from '../../../../context/hooks/useConfigContext';
 import { IGenre, IMovieDetails } from '../../types';
 
-export default function MovieDetails({
+export default function SsrMovieDetails({
   movieDetails,
 }: {
   movieDetails: IMovieDetails;

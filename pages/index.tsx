@@ -1,4 +1,3 @@
-import getConfig from 'next/config';
 import Link from 'next/link';
 import { Seo } from '../components/Seo';
 import useConfigContext from '../context/hooks/useConfigContext';
@@ -17,6 +16,9 @@ export default function Home() {
           </Link>
           <Link className={styles.card} href={`${PREFIX_HOME}movies/csr/`}>
             <p>Client Side Rendered List</p>
+          </Link>
+          <Link className={styles.card} href={`${PREFIX_HOME}ssg/`}>
+            <p>Server Side Generation</p>
           </Link>
         </div>
       </main>
