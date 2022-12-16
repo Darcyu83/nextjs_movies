@@ -9,7 +9,7 @@ import matter from 'gray-matter';
 import { Seo } from '../../components/Seo';
 
 export default function SsgMovieDetails({
-  movieNm,
+  staticMdNm,
   contents,
   data,
 }: InferGetStaticPropsType<typeof getStaticPaths> & {
@@ -19,12 +19,10 @@ export default function SsgMovieDetails({
 }) {
   const router = useRouter();
 
-  console.log('getStaticPaths post', data);
-
   return (
     <div>
       <Seo pageNm={'ahah'} />
-      <p>invoked static Movie page Nm === {movieNm}</p>
+      <p>invoked static Movie page Nm === {staticMdNm}</p>
       <h1>.md file contents</h1>
       <pre>{`${contents}`}</pre>
     </div>
@@ -51,10 +49,10 @@ const movieIds = {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   console.log('ctx ===', ctx.params);
-  const movieNm = ctx.params?.movieNm;
+  const staticMdNm = ctx.params?.staticMdNm;
 
   const markdownWithMeta = fs
-    .readFileSync(path.join('pages/static', movieNm + '.md'))
+    .readFileSync(path.join('pages/static', staticMdNm + '.md'))
     .toString();
 
   const parsedMarkdown = matter(markdownWithMeta);
@@ -63,7 +61,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   return {
     props: {
-      movieNm,
+      staticMdNm,
       contents: parsedMarkdown.content,
       data: parsedMarkdown.data,
     },

@@ -2,4 +2,4 @@
 
 # yuds
 
-this string from pages/static/faq.md
+this from pages/static/faq.md

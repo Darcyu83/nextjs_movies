@@ -1,5 +1,5 @@
-# pages/static/siteMap.md
+# pages/static/sitemap.md
 
 # yuds
 
-this string from pages/static/siteMap.md
+this from pages/static/sitemap.md
