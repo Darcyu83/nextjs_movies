@@ -5,6 +5,7 @@ import useConfigContext from '../context/hooks/useConfigContext';
 import styles from '../styles/Home.module.css';
 
 import fs from 'fs';
+import SsrList from './movies/ssr';
 
 export default function Home({
   staticPosts,
@@ -33,7 +34,7 @@ export default function Home({
               className={styles.card}
               href={`${PREFIX_HOME}ssg/${post}`}
             >
-              <p>Server Side Generation </p>
+              <p>Server Side Generation</p>
               <p>{post.toUpperCase()}.md</p>
             </Link>
           ))}

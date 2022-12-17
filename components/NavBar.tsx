@@ -89,15 +89,12 @@ export default function NavBar() {
         }
 
         p {
-             border-bottom:${
-               router.pathname === routerPaths.ssr ? '2px solid dodgerblue' : ''
-             } 
-          /* border-bottom: 2px solid transparent; */
+          border-bottom: 2px solid transparent;
           font-size: inherit;
         }
 
         p:hover {
-          border-bottom: 2px solid dodgerblue;
+          border-bottom: 2px solid cyan;
         }
       `}</style>
     </nav>
