@@ -1,5 +1,7 @@
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
+import { PREFIX_HOME } from '../../api/config/config';
 import { IEntries } from '../../api/logrocket/getRandomAPI';
 
 import styles from '../../styles/Home.module.css';
@@ -26,6 +28,14 @@ function Page({
 
   return (
     <main className={styles.grid}>
+      <a href={`${PREFIX_HOME}api/revalidate/?secret=yuds`}>
+        <button>Click to revalidate SSG with a tag</button>
+      </a>
+
+      <Link href={`${PREFIX_HOME}api/revalidate/?secret=yuds`}>
+        <button>Click to revalidate SSG with Link</button>
+      </Link>
+
       <div className="container">
         <button onClick={() => router.back()}>Back</button>
         <h1 style={{ color: 'yellow' }}>{pageInfo.pageNm}</h1>
