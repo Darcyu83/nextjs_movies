@@ -1,28 +1,29 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { createTextSpan } from 'typescript';
 import { Seo } from '../../../components/Seo';
-import { API_MOVIES, PREFIX_HOME } from '../../../config/config';
-import useConfigContext from '../../../context/hooks/useConfigContext';
+import { API_MOVIES, PREFIX_HOME, PREFIX_POSTER } from '../../../config/config';
 import { IGenre, IMovie, IMovieDetails } from '../../../types/movies/types';
 
-export function SsgMovieDetails({
-  movieDetails,
-}: {
+interface IProps {
   movieDetails: IMovieDetails;
-}) {
-  const { PREFIX_POSTER } = useConfigContext();
+}
+
+function IsrMovieDetails({ movieDetails }: IProps) {
   console.log('movie data', movieDetails);
 
   const router = useRouter();
   console.log(router);
-
   return (
     <div className="container">
       <Seo pageNm={`${movieDetails.title}`} />
       <button onClick={() => router.back()}>Back</button>
       <p style={{ color: 'red' }}>
-        This page was generated as a static html on the server side
+        This page was generated as a Increamental Static page. It will show a
+        regenerated static page when a request comes in at most once every 60
+        seconds. It means all vistors will see the same generated version of
+        page for one minute.
       </p>
       <p className="title">{`${movieDetails.title}`}</p>
       <p>{movieDetails.tagline}</p>
@@ -126,7 +127,20 @@ export function SsgMovieDetails({
   );
 }
 
-export default SsgMovieDetails;
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const movieId = ctx.params?.movieId;
+
+  const reqUrl = `${PREFIX_HOME}${API_MOVIES}`;
+
+  const response = await fetch(`${reqUrl}/${movieId}`);
+
+  const movieDetails: IMovieDetails = await response.json();
+
+  return {
+    props: { movieDetails },
+    revalidate: 60,
+  };
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const reqUrl = `${PREFIX_HOME}${API_MOVIES}`;
@@ -135,35 +149,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const { results }: { results: IMovie[] } = await response.json();
 
-  const paths = results.slice(0, 3).map((movie) => ({
+  const paths = results.map((movie) => ({
     params: {
       movieId: movie.id.toString(),
     },
   }));
-
-  console.log('paths ==== ', paths);
-
   return {
     paths,
     fallback: false,
   };
 };
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  /**
-   * @TODO : Server Side build시 실행되는 코드들 중복 해결해야함??
-   */
-  console.log('ctx ==== ', ctx.params);
-
-  const reqUrl = `${PREFIX_HOME}${API_MOVIES}`;
-
-  const responseDetail = await fetch(
-    reqUrl + `/${Number(ctx.params?.movieId)}`,
-  );
-
-  const movieDetails: IMovieDetails = await responseDetail.json();
-
-  return {
-    props: { movieDetails: movieDetails },
-  };
-};
+export default IsrMovieDetails;

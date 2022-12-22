@@ -1,15 +1,24 @@
+import styled from '@emotion/styled';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { PREFIX_HOME } from '../config/config';
-import useConfigContext from '../context/hooks/useConfigContext';
 
 export const routerPaths = {
   home: '/',
   ssr: 'movies/ssr',
   csr: 'movies/csr',
   ssg: 'movies/ssg',
+  isr: 'movies/isr',
 } as const;
+
+const LinkP = styled.p<{ isActivePage: boolean }>`
+  margin: 0px 10px;
+  padding: 10px 0px;
+  word-wrap: break-word;
+  border-bottom: ${(props) =>
+    props.isActivePage ? '2px solid dodgerblue' : ''};
+`;
 
 export default function NavBar() {
   const router = useRouter();
@@ -24,52 +33,30 @@ export default function NavBar() {
   return (
     <nav>
       <Link href={`${routerPaths.home}`}>
-        <p
-          style={{
-            borderBottom:
-              activeRoutePath === routerPaths.home
-                ? '2px solid dodgerblue'
-                : '',
-          }}
-        >
-          Home
-        </p>
+        <LinkP isActivePage={activeRoutePath === routerPaths.home}>Home</LinkP>
       </Link>
+
       <Link href={`${PREFIX_HOME}${routerPaths.ssr}`}>
-        <p
-          style={{
-            borderBottom:
-              activeRoutePath === '/' + routerPaths.ssr
-                ? '2px solid dodgerblue'
-                : '',
-          }}
-        >
+        <LinkP isActivePage={activeRoutePath.includes('/' + routerPaths.ssr)}>
           Server Side Rendered List
-        </p>
+        </LinkP>
       </Link>
+
       <Link href={`${PREFIX_HOME}${routerPaths.csr}`}>
-        <p
-          style={{
-            borderBottom:
-              activeRoutePath === '/' + routerPaths.csr
-                ? '2px solid dodgerblue'
-                : '',
-          }}
-        >
+        <LinkP isActivePage={activeRoutePath.includes('/' + routerPaths.csr)}>
           Client Side Rendered List
-        </p>
+        </LinkP>
       </Link>
       <Link href={`${PREFIX_HOME}${routerPaths.ssg}`}>
-        <p
-          style={{
-            borderBottom:
-              activeRoutePath === '/' + routerPaths.ssg
-                ? '2px solid dodgerblue'
-                : '',
-          }}
-        >
+        <LinkP isActivePage={activeRoutePath.includes('/' + routerPaths.ssg)}>
           Server Side Generation List
-        </p>
+        </LinkP>
+      </Link>
+
+      <Link href={`${PREFIX_HOME}${routerPaths.isr}`}>
+        <LinkP isActivePage={activeRoutePath.includes('/' + routerPaths.isr)}>
+          Increamental Static Regeneration List
+        </LinkP>
       </Link>
 
       <style jsx>{`

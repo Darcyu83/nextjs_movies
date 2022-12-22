@@ -1,21 +1,24 @@
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetStaticProps } from 'next';
 import Link from 'next/link';
+import MovieCard from '../../../components/movies/MovieCard';
 import { API_MOVIES, PREFIX_HOME } from '../../../config/config';
 import { IMovie } from '../../../types/movies/types';
 import styles from '../../../styles/Home.module.css';
-import MovieCard from '../../../components/movies/MovieCard';
 
-export function SsgList({ staticMovies }: { staticMovies: IMovie[] }) {
+interface IProps {
+  staticMovies: IMovie[];
+}
+function IsrList({ staticMovies }: IProps) {
   return (
     <main className={styles.main}>
-      <h1>Server Side Generation page list</h1>
+      <h1>Increamental Static Regeneration page list</h1>
       <p>Top 3 Movies</p>
 
       <div>
         {staticMovies?.map((movie: IMovie) => (
           <Link
             key={'ssg_movie_' + movie.title}
-            href={`${PREFIX_HOME}movies/ssg/${movie.id}`}
+            href={`${PREFIX_HOME}movies/isr/${movie.id}`}
           >
             <MovieCard movie={movie} />
           </Link>
@@ -24,8 +27,6 @@ export function SsgList({ staticMovies }: { staticMovies: IMovie[] }) {
     </main>
   );
 }
-
-export default SsgList;
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const reqUrl = `${PREFIX_HOME}${API_MOVIES}`;
@@ -40,3 +41,5 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     props: { staticMovies },
   };
 };
+
+export default IsrList;

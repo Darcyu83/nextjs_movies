@@ -17,16 +17,28 @@ export default function Home({
       <Seo pageNm="Home" />
       <main className={styles.main}>
         <div className={styles.grid}>
+          {/* Server Side Rendered List */}
           <Link className={styles.card} href={`${PREFIX_HOME}movies/ssr/`}>
             <p>Server Side Rendered List</p>
           </Link>
+
+          {/* Client Side Rendered List */}
           <Link className={styles.card} href={`${PREFIX_HOME}movies/csr/`}>
             <p>Client Side Rendered List</p>
           </Link>
+
+          {/* Server Side Generation page List */}
           <Link className={styles.card} href={`${PREFIX_HOME}movies/ssg/`}>
             <p>Server Side Generation page List</p>
           </Link>
+
+          {/* Increamental Static Regeneration page List */}
+          <Link className={styles.card} href={`${PREFIX_HOME}movies/isr/`}>
+            <p>Increamental Static Regeneration page List</p>
+          </Link>
         </div>
+
+        {/* Server Side Generation */}
         <div className={styles.grid}>
           {staticPosts.map((post: string) => (
             <Link
@@ -34,8 +46,7 @@ export default function Home({
               className={styles.card}
               href={`${PREFIX_HOME}ssg/${post}`}
             >
-              <p>Server Side Generation</p>
-              <p>{post.toUpperCase()}.md</p>
+              <p>Server Side Generation :{post.toUpperCase()}.md</p>
             </Link>
           ))}
         </div>
