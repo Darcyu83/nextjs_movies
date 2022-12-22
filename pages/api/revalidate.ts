@@ -11,6 +11,7 @@ export default async function handler(
   }
 
   try {
+    console.log('revalidation call ===yuds');
     await res.revalidate(`/logrocket/ssg`);
     // await res.revalidate('/');
     return res.json({ revalidated: true });
