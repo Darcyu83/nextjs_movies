@@ -9,7 +9,7 @@ export const routerPaths = {
   ssr: 'movies/ssr',
   csr: 'movies/csr',
   ssg: 'movies/ssg',
-  isr: 'movies/isr',
+  isr: 'logrocket/',
 } as const;
 
 const LinkP = styled.p<{ isActivePage: boolean }>`
@@ -55,7 +55,7 @@ export default function NavBar() {
 
       <Link href={`${PREFIX_HOME}${routerPaths.isr}`}>
         <LinkP isActivePage={activeRoutePath.includes('/' + routerPaths.isr)}>
-          Increamental Static Regeneration List
+          Comparison of ISR, SSG and SSR
         </LinkP>
       </Link>
 

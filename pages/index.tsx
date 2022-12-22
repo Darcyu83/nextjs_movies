@@ -29,12 +29,12 @@ export default function Home({
 
           {/* Server Side Generation page List */}
           <Link className={styles.card} href={`${PREFIX_HOME}movies/ssg/`}>
-            <p>Server Side Generation page List</p>
+            <p>Static Site Generation page List</p>
           </Link>
 
           {/* Increamental Static Regeneration page List */}
-          <Link className={styles.card} href={`${PREFIX_HOME}movies/isr/`}>
-            <p>Increamental Static Regeneration page List</p>
+          <Link className={styles.card} href={`${PREFIX_HOME}logrocket/`}>
+            <p>Incremental Static Regeneration</p>
           </Link>
         </div>
 
