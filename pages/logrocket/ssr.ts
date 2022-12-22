@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next';
-import { getRandomAPI } from '../../api/handler/logrocket/getRandomAPI';
+import { getRandomAPI } from '../../api/logrocket/getRandomAPI';
 import Page from '../../components/logrocket/Page';
 
 export default Page;

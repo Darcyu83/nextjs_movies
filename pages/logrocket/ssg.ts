@@ -1,8 +1,5 @@
 import { GetStaticProps } from 'next';
-import {
-  getRandomAPI,
-  IEntries,
-} from '../../api/handler/logrocket/getRandomAPI';
+import { getRandomAPI, IEntries } from '../../api/logrocket/getRandomAPI';
 import { IPageInfo } from '../../components/logrocket/Page';
 import Page from './ssr';
 

@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import React from 'react';
-import { IEntries } from '../../api/handler/logrocket/getRandomAPI';
+import { IEntries } from '../../api/logrocket/getRandomAPI';
 
 import styles from '../../styles/Home.module.css';
 

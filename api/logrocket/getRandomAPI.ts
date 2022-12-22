@@ -13,7 +13,5 @@ export async function getRandomAPI() {
 
   const { entries }: { entries: IEntries[] } = await res.json();
 
-  console.log('getRandomAPI', entries[0]);
-
   return entries[0];
 }
