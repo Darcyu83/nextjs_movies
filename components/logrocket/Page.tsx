@@ -26,15 +26,19 @@ function Page({
       </div>
     );
 
+  const onRevalidateSSGpage = async () => {
+    await fetch(
+      `${PREFIX_HOME}api/revalidate/?secret=${process.env.REVALIDATION_KEY}`,
+    );
+  };
+
   return (
     <main className={styles.grid}>
-      <a href={`${PREFIX_HOME}api/revalidate/?secret=yuds`}>
+      {/* <a href={`${PREFIX_HOME}api/revalidate/?secret=yuds`}>
         <button>Click to revalidate SSG with a tag</button>
-      </a>
+      </a> */}
 
-      <Link href={`${PREFIX_HOME}api/revalidate/?secret=yuds`}>
-        <button>Click to revalidate SSG with Link</button>
-      </Link>
+      <button onClick={onRevalidateSSGpage}>Click to revalidate SSG </button>
 
       <div className="container">
         <button onClick={() => router.back()}>Back</button>
