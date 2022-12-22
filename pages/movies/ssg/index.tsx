@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
-import { API_MOVIES, PREFIX_HOME } from '../../../config/config';
+import { API_MOVIES, PREFIX_HOME } from '../../../api/config/config';
 import { IMovie } from '../../../types/movies/types';
 import styles from '../../../styles/Home.module.css';
 import MovieCard from '../../../components/movies/MovieCard';

@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Seo } from '../../../components/Seo';
-import { API_MOVIES, PREFIX_HOME } from '../../../config/config';
+import { API_MOVIES, PREFIX_HOME } from '../../../api/config/config';
 import useConfigContext from '../../../context/hooks/useConfigContext';
 import { IGenre, IMovie, IMovieDetails } from '../../../types/movies/types';
 

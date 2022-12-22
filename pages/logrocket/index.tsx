@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { PREFIX_HOME } from '../../config/config';
+import { PREFIX_HOME } from '../../api/config/config';
 import styles from '../../styles/Home.module.css';
 
 function lsrLogRocketList() {

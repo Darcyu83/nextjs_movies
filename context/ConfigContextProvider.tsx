@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { PREFIX_HOME, PREFIX_POSTER } from '../config/config';
+import { PREFIX_HOME, PREFIX_POSTER } from '../api/config/config';
 import { IConfigContext } from './types';
 
 export const ConfigContext = createContext<IConfigContext | null>(null);

@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { PREFIX_HOME } from '../config/config';
+import { PREFIX_HOME } from '../api/config/config';
 
 export const routerPaths = {
   home: '/',

@@ -2,7 +2,7 @@ import { GetServerSideProps } from 'next';
 import Link from 'next/link';
 import MovieCard from '../../../components/movies/MovieCard';
 import { Seo } from '../../../components/Seo';
-import { API_MOVIES, PREFIX_HOME } from '../../../config/config';
+import { API_MOVIES, PREFIX_HOME } from '../../../api/config/config';
 import { IMovie } from '../../../types/movies/types';
 
 export default function SsrList({ movies }: { movies: IMovie[] }) {

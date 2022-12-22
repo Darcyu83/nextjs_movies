@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { PREFIX_POSTER } from '../../config/config';
+import { PREFIX_POSTER } from '../../api/config/config';
 import { IMovie } from '../../types/movies/types';
 
 export default function MovieCard({ movie }: { movie: IMovie }) {

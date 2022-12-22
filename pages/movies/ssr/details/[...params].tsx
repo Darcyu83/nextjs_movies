@@ -2,7 +2,7 @@ import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { Seo } from '../../../../components/Seo';
-import { PREFIX_HOME } from '../../../../config/config';
+import { PREFIX_HOME } from '../../../../api/config/config';
 import useConfigContext from '../../../../context/hooks/useConfigContext';
 import { IGenre, IMovieDetails } from '../../../../types/movies/types';
 
