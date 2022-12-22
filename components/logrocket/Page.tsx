@@ -28,7 +28,8 @@ function Page({
 
   const onRevalidateSSGpage = async () => {
     await fetch(
-      `${PREFIX_HOME}api/revalidate/?secret=${process.env.REVALIDATION_KEY}`,
+      `${PREFIX_HOME}api/revalidate/?secret=yuds`,
+      // `${PREFIX_HOME}api/revalidate/?secret=${process.env.REVALIDATION_KEY}`,
     );
   };
 
