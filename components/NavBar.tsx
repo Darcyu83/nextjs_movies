@@ -9,7 +9,7 @@ export const routerPaths = {
   ssr: 'movies/ssr',
   csr: 'movies/csr',
   ssg: 'movies/ssg',
-  isr: 'logrocket/',
+  isr: 'logrocket',
 } as const;
 
 const LinkP = styled.p<{ isActivePage: boolean }>`
@@ -17,7 +17,11 @@ const LinkP = styled.p<{ isActivePage: boolean }>`
   padding: 10px 0px;
   word-wrap: break-word;
   border-bottom: ${(props) =>
-    props.isActivePage ? '2px solid dodgerblue' : ''};
+    props.isActivePage ? '2px solid dodgerblue' : '2px solid transparent'};
+
+  &:hover {
+    border-bottom: 2px solid cyan;
+  }
 `;
 
 export default function NavBar() {
@@ -78,10 +82,6 @@ export default function NavBar() {
         p {
           border-bottom: 2px solid transparent;
           font-size: inherit;
-        }
-
-        p:hover {
-          border-bottom: 2px solid cyan;
         }
       `}</style>
     </nav>
