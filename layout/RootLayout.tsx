@@ -12,14 +12,24 @@ export default function RootLayout({ children }: IProps) {
     <div className="container">
       {/* nav bar */}
       <NavBar />
-
       {/* contents */}
-      <main className={styles.main}>{children}</main>
-
+      <main
+        className={styles.main}
+        style={{ backgroundColor: 'rgba(0,0,0,0.8)' }}
+      >
+        {children}
+      </main>
       {/* footer */}
       <Footer />
       <style jsx>{`
         .container {
+          position: relative;
+          background-color: red;
+          z-index: 5;
+          background-image: url('/dev_code_1920.jpg');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
         }
       `}</style>
     </div>

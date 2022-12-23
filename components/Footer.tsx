@@ -6,7 +6,7 @@ export default function Footer() {
       <style jsx>{`
         footer {
           width: 100%;
-          background-color: rgba(255, 255, 255, 0.3);
+          background-color: rgba(97, 111, 172, 0.6);
           padding: 10px;
           display: flex;
           justify-content: space-evenly;
