@@ -22,8 +22,10 @@ export function SsgMovieDetails({
       <Seo pageNm={`${movieDetails.title}`} />
       <button onClick={() => router.back()}>Back</button>
       <p style={{ color: 'red' }}>
-        This page was generated as a static html on the server side
+        This page was generated as a Static Site with solid path :
+        {` ${PREFIX_HOME}movies/ssg/${movieDetails.id}`}
       </p>
+
       <p className="title">{`${movieDetails.title}`}</p>
       <p>{movieDetails.tagline}</p>
       <div className="inner-container">
@@ -41,6 +43,7 @@ export function SsgMovieDetails({
           <p>{movieDetails?.title}</p>
           <p>OverView: {movieDetails?.overview}</p>
           <p>Language: {movieDetails?.original_language}</p>
+          <p>Genres: </p>
           <div className="genres">
             {movieDetails?.genres.map((genre: IGenre) => (
               <span key={genre.id}>●{genre.name}</span>

@@ -37,6 +37,7 @@ export default function SsrMovieDetails({
           <p>{movieDetails?.title}</p>
           <p>OverView: {movieDetails?.overview}</p>
           <p>Language: {movieDetails?.original_language}</p>
+          <p>Genres: </p>
           <div className="genres">
             {movieDetails?.genres.map((genre: IGenre) => (
               <span key={genre.id}>●{genre.name}</span>

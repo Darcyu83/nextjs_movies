@@ -16,6 +16,7 @@ const LinkP = styled.p<{ isActivePage: boolean }>`
   margin: 0px 10px;
   padding: 10px 0px;
   word-wrap: break-word;
+  color: #fafafa;
   border-bottom: ${(props) =>
     props.isActivePage ? '2px solid dodgerblue' : '2px solid transparent'};
 
@@ -53,7 +54,7 @@ export default function NavBar() {
       </Link>
       <Link href={`${PREFIX_HOME}${routerPaths.ssg}`}>
         <LinkP isActivePage={activeRoutePath.includes('/' + routerPaths.ssg)}>
-          Server Side Generation List
+          Static Site Generation List
         </LinkP>
       </Link>
 

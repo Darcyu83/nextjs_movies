@@ -17,7 +17,7 @@ function lsrLogRocketList() {
           <p>Static Site Generation</p>
         </Link>
 
-        {/* Server Side Generation page  */}
+        {/* Static Site Generationpage  */}
         <Link className={styles.card} href={`${PREFIX_HOME}logrocket/isr/`}>
           <p>Incremental Static Regeneration page</p>
         </Link>

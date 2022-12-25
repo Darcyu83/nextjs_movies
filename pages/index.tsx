@@ -26,7 +26,7 @@ export default function Home({
             <p>Client Side Rendered List</p>
           </Link>
 
-          {/* Server Side Generation page List */}
+          {/* Static Site Generationpage List */}
           <Link className={styles.card} href={`${PREFIX_HOME}movies/ssg/`}>
             <p>Static Site Generation page List</p>
           </Link>
@@ -37,7 +37,7 @@ export default function Home({
           </Link>
         </div>
 
-        {/* Server Side Generation */}
+        {/* Static Site Generation*/}
         <div className={styles.grid}>
           {staticPosts.map((post: string) => (
             <Link
@@ -45,7 +45,7 @@ export default function Home({
               className={styles.card}
               href={`${PREFIX_HOME}ssg/${post}`}
             >
-              <p>Server Side Generation :{post.toUpperCase()}.md</p>
+              <p>Static Site Generation:{post.toUpperCase()}.md</p>
             </Link>
           ))}
         </div>

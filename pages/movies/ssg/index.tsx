@@ -4,11 +4,48 @@ import { API_MOVIES, PREFIX_HOME } from '../../../api/config/config';
 import { IMovie } from '../../../types/movies/types';
 import styles from '../../../styles/Home.module.css';
 import MovieCard from '../../../components/movies/MovieCard';
+import styled from '@emotion/styled';
 
-export function SsgList({ staticMovies }: { staticMovies: IMovie[] }) {
+const UrlsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ececec;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  width: 80%;
+  margin-bottom: 0.5rem;
+`;
+export function SsgList({
+  staticMovies,
+  notStaticMovieId,
+}: {
+  staticMovies: IMovie[];
+  notStaticMovieId: number;
+}) {
   return (
     <main className={styles.main}>
-      <h1>Server Side Generation page list</h1>
+      <h1>Static Site Generationpage list</h1>
+
+      <UrlsContainer>
+        <p>The path with not solid root is going to occur 404 error :</p>
+        <p style={{ color: 'red' }}>
+          {` ${PREFIX_HOME}movies/ssg/${notStaticMovieId}`}
+        </p>
+      </UrlsContainer>
+      <UrlsContainer>
+        <p>
+          These pages below was generated as a Static Site Generation with solid
+          path :
+        </p>
+        {staticMovies.map((movie) => {
+          return (
+            <p key={movie.id} style={{ color: 'red' }}>
+              {PREFIX_HOME}movies/ssg/{movie.id}
+            </p>
+          );
+        })}
+      </UrlsContainer>
+
       <p>Top 3 Movies</p>
 
       <div>
@@ -35,8 +72,8 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const { results }: { results: IMovie[] } = await response.json();
 
   const staticMovies = results.slice(0, 3);
-
+  const notStaticMovieId = results[4].id;
   return {
-    props: { staticMovies },
+    props: { staticMovies, notStaticMovieId },
   };
 };
