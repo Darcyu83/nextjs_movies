@@ -3,17 +3,17 @@ import { getRandomAPI, IEntry } from '../../api/logrocket/getRandomAPI';
 import Page from './ssr';
 
 interface IProps {
-  entries: IEntry;
+  entry: IEntry;
   pageInfo: {
     pageNm: string;
     pageDesc: string;
   };
 }
 
-function LogRocketIsr({ entries, pageInfo }: IProps) {
+function LogRocketIsr({ entry, pageInfo }: IProps) {
   return (
     <div>
-      <Page entries={entries} pageInfo={pageInfo} />
+      <Page entry={entry} pageInfo={pageInfo} />
     </div>
   );
 }
@@ -21,11 +21,11 @@ function LogRocketIsr({ entries, pageInfo }: IProps) {
 export default LogRocketIsr;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const entries = await getRandomAPI();
+  const entry = await getRandomAPI();
 
   return {
     props: {
-      entries,
+      entry,
       pageInfo: {
         pageNm: 'ISR Page',
         pageDesc: `To Check the effect, Please clear the browser cache. \n(1) 첫 요청시 데이터 업데이트 \n(2) 모든 유저에게 60초동안 업데이트된 같은 화면 제공 \n(3) 60초 경과 후 첫 요청에 새로운 데이터 업데이트 \nrevalidate: 60s in this page / SSG like with an additional revalidate property that means how often to revalidate the page(in seconds). \n\nSite builds and responds to user with static files from build

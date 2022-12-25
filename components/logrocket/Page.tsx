@@ -10,6 +10,7 @@ export interface IPageInfo {
   pageNm: string;
   pageDesc: string;
 }
+
 function Page({ entry, pageInfo }: { entry: IEntry; pageInfo: IPageInfo }) {
   const router = useRouter();
 
