@@ -35,10 +35,8 @@ export default function Home({
           <Link className={styles.card} href={`${PREFIX_HOME}logrocket/`}>
             <p>Incremental Static Regeneration</p>
           </Link>
-        </div>
 
-        {/* Static Site Generation*/}
-        <div className={styles.grid}>
+          {/* Static Site Generation*/}
           {staticPosts.map((post: string) => (
             <Link
               key={post}
