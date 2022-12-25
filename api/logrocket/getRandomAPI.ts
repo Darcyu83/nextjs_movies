@@ -1,4 +1,4 @@
-export interface IEntries {
+export interface IEntry {
   API: string;
   Description: string;
   Auth: string;
@@ -11,7 +11,7 @@ export interface IEntries {
 export async function getRandomAPI() {
   const res = await fetch('https://api.publicapis.org/random');
 
-  const { entries }: { entries: IEntries[] } = await res.json();
+  const { entries }: { entries: IEntry[] } = await res.json();
 
   return entries[0];
 }

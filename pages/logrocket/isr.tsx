@@ -1,8 +1,24 @@
 import { GetStaticProps } from 'next';
-import { getRandomAPI } from '../../api/logrocket/getRandomAPI';
+import { getRandomAPI, IEntry } from '../../api/logrocket/getRandomAPI';
 import Page from './ssr';
 
-export default Page;
+interface IProps {
+  entries: IEntry;
+  pageInfo: {
+    pageNm: string;
+    pageDesc: string;
+  };
+}
+
+function LogRocketIsr({ entries, pageInfo }: IProps) {
+  return (
+    <div>
+      <Page entries={entries} pageInfo={pageInfo} />
+    </div>
+  );
+}
+
+export default LogRocketIsr;
 
 export const getStaticProps: GetStaticProps = async () => {
   const entries = await getRandomAPI();

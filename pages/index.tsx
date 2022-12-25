@@ -4,7 +4,7 @@ import { Seo } from '../components/Seo';
 import useConfigContext from '../context/hooks/useConfigContext';
 import styles from '../styles/Home.module.css';
 import fs from 'fs';
-import SsrList from './movies/ssr';
+import LogRocketCsr from './logrocket/csr';
 
 export default function Home({
   staticPosts,
@@ -47,6 +47,8 @@ export default function Home({
             </Link>
           ))}
         </div>
+
+        <LogRocketCsr />
       </main>
     </div>
   );
